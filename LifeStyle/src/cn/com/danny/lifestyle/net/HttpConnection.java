@@ -8,8 +8,9 @@ import java.net.URL;
 
 // 网络操作类
 public class HttpConnection {
-	public static String HttpGet(String urlString){
+	public static String HttpGet(String urlString , URLParam param){
 		try {
+			urlString += param.getQueryStr() ;
 			URL url = new URL(urlString);
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection() ;
 			connection.setRequestMethod("GET") ;

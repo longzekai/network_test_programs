@@ -13,15 +13,18 @@ public class ParseJsonDataService extends Service {
 	@Override
 	public void onStart(Intent intent, int startId) {
 		// TODO Auto-generated method stub
-		Bundle bundle = docmd() ;
+		URLParam param = new URLParam(null) ;
+		Bundle bundle = docmd(URLProtocol.CMD_MOVIE , param) ;
 		Message message = new Message() ;
 		message.setData(bundle) ;
 		MainActivity.mHandler.sendMessage(message) ;
 	}
 	
 	
-	public Bundle docmd(){
-		String jsonStr = HttpConnection.HttpGet("url_addr") ;
+	public Bundle docmd(int cmd , URLParam param ){
+		URLParam _param = new URLParam(param) ;
+		_param.addParam("cmd", cmd) ;
+		String jsonStr = HttpConnection.HttpGet(URLProtocol.ROOT , _param) ;
 		Bundle bundle = new Bundle() ;
 		bundle.putString("jsonStr", jsonStr) ;
 		return bundle ;
