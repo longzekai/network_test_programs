@@ -25,8 +25,8 @@ public class MainActivity extends Activity {
     
     public static Handler mHandler = new Handler(){
     	public void handleMessage(android.os.Message msg) {
-    		Bundle bundle = msg.getData() ;
-    		String jsonStr = bundle.getString("jsonStr") ;
+//    		Bundle bundle = msg.getData() ;
+//    		String jsonStr = bundle.getString("jsonStr") ;
     	};
     } ;
 
