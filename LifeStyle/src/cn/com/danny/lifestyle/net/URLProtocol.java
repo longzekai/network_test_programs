@@ -9,5 +9,6 @@ public class URLProtocol {
 	//获取电影列表
 	public static final int CMD_MOVIE = 101 ;
 	
-	
+	//注册接口
+	public static final int CMD_REGISTER = 1 ;
 }

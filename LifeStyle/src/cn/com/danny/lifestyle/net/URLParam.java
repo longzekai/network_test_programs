@@ -14,14 +14,19 @@ public class URLParam {
 	}
 	
 	// 添加String 类型的参数
-	public void addParam (String name , String value) throws UnsupportedEncodingException {
+	public void addParam (String name , String value) {
 		if (_query.length() != 0) {
 			_query.append('&') ;
 		} else {
 			_query.append('?') ;
 		}
 		
-		_query.append(name).append('=').append(URLEncoder.encode(value, "UTF-8")) ;
+		try {
+			_query.append(name).append('=').append(URLEncoder.encode(value, "UTF-8")) ;
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	// 添加int 类型的参数
